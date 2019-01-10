@@ -24,5 +24,3 @@ print(is_palindrome('abab'))
 #>>> False
 print(is_palindrome('abba'))
 #>>> True
-s = "abcd"
-print(s[1:-1])
