@@ -13,17 +13,37 @@
 
 def numbers_in_lists(string):
     # YOUR CODE
+    initial_list = [int(string[0])]
+    sublist = []
+    i = 0
+    while i < len(string):
+        if i > 0:
+            if int(string[i]) <= int(string[i-1]) or (len(sublist) > 0 and int(string[i]) <= max(sublist)):
+                sublist.append(int(string[i]))
+            else:
+                sublist = []
+                initial_list.append(int(string[i]))
+            if len(sublist) > 0 and sublist not in initial_list:
+                initial_list.append(sublist)
+        i = i + 1
+    return initial_list
+
 
 #testcases
 string = '543987'
 result = [5,[4,3],9,[8,7]]
-print repr(string), numbers_in_lists(string) == result
+print(numbers_in_lists(string))
+print(repr(string), numbers_in_lists(string) == result)
 string= '987654321'
+print(numbers_in_lists(string))
 result = [9,[8,7,6,5,4,3,2,1]]
-print repr(string), numbers_in_lists(string) == result
+print(repr(string), numbers_in_lists(string) == result)
 string = '455532123266'
+print(numbers_in_lists(string))
 result = [4, 5, [5, 5, 3, 2, 1, 2, 3, 2], 6, [6]]
-print repr(string), numbers_in_lists(string) == result
+print(repr(string), numbers_in_lists(string) == result)
 string = '123456789'
+print(numbers_in_lists(string))
 result = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-print repr(string), numbers_in_lists(string) == result
+print(repr(string), numbers_in_lists(string) == result)
+# print(max([1,2,3]))
