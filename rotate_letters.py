@@ -17,7 +17,7 @@ def rotate(passage, n):
     new_passage = []
     for word in passage_list:
         new_word = ""
-        for position, letter in enumerate(word):
+        for letter in word:
             new_word += shift_n_letters(letter, n)
         new_passage.append(new_word)
     return " ".join(new_passage)
